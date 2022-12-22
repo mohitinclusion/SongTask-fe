@@ -1,0 +1,32 @@
+<div class="animated fadeIn dialog__modal">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Delete Song</strong>
+          <button class="btn btn_cancel" (click)="clickNo()">
+            <mat-icon mat-list-icon class="icon-style" matTooltip="close">
+              close</mat-icon
+            >
+          </button>
+        </div>
+        <div class="card-body">
+          <div mat-dialog-content>
+            <p>Are you sure to delete this song?</p>
+          </div>
+          <div mat-dialog-actions class="col-12 d-flex align-items-center justify-content-center">
+            <button
+              mat-raised-button type="button"
+              class="btn btn-primary"
+              [mat-dialog-close]="yesFlag"
+              (click)="clickYes()"
+            >
+              Yes
+            </button>&nbsp;
+            <button class="btn btn-primary" type="button" mat-raised-button (click)="clickNo()">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

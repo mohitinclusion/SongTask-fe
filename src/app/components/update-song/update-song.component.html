@@ -1,0 +1,144 @@
+<div class="animated fadeIn dialog__modal">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>Update Song</strong>
+          <button class="btn btn_cancel" (click)="onCancel()"><mat-icon
+                mat-list-icon
+                class="icon-style"
+                matTooltip="close"
+              >
+                close</mat-icon
+              ></button>
+        </div>
+        <div class="card-body">
+          <form class="form-margin-main" [formGroup]="updateSongForm">
+            <div class="form-group">
+              <div class="row">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="dialog_form-control">
+                        <label>Song:</label>
+                        <label class="input-select-label">
+                          <input
+                            class="form-control"
+                            type="text"
+                            formControlName="song"
+                          [ngClass]="{ 'is-invalid': submitted && f['song'].errors }" />
+                            <div *ngIf="submitted && f['song'].errors" class="invalid-feedback">
+                                <div *ngIf="f['song'].errors['required']"><span class="danger">*</span>Song is required</div>
+                            </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="dialog_form-control">
+                        <label>Artist:</label>
+                        <label class="input-select-label">
+                          <input
+                            class="form-control"
+                            type="text"
+                            formControlName="artist"
+                          [ngClass]="{ 'is-invalid': submitted && f['artist'].errors }" />
+                            <div *ngIf="submitted && f['artist'].errors" class="invalid-feedback">
+                                <div *ngIf="f['artist'].errors['required']"><span class="danger">*</span>Artist is required</div>
+                            </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="dialog_form-control">
+                        <label>Release Year:</label>
+                        <label class="input-select-label">
+                          <input
+                            class="form-control"
+                            type="text"
+                            formControlName="releaseYear"
+                         [ngClass]="{ 'is-invalid': submitted && f['releaseYear'].errors }" />
+                            <div *ngIf="submitted && f['releaseYear'].errors" class="invalid-feedback">
+                                <div *ngIf="f['releaseYear'].errors['required']"><span class="danger">*</span>Release Year is required</div>
+                            </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="dialog_form-control">
+                        <label>First:</label>
+                        <label class="input-select-label">
+                          <input
+                            class="form-control"
+                            type="number"
+                            formControlName="first"
+                          [ngClass]="{ 'is-invalid': submitted && f['first'].errors }" />
+                            <div *ngIf="submitted && f['first'].errors" class="invalid-feedback">
+                                <div *ngIf="f['first'].errors['required']"><span class="danger">*</span>First is required</div>
+                            </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="dialog_form-control">
+                        <label>Year:</label>
+                        <label class="input-select-label">
+                          <input
+                            class="form-control"
+                            type="number"
+                            formControlName="year"
+                          [ngClass]="{ 'is-invalid': submitted && f['year'].errors }" />
+                            <div *ngIf="submitted && f['year'].errors" class="invalid-feedback">
+                                <div *ngIf="f['year'].errors['required']"><span class="danger">*</span>Year is required</div>
+                            </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-6">
+                      <div class="dialog_form-control">
+                        <label>Play Count:</label>
+                        <label class="input-select-label">
+                          <input
+                            class="form-control"
+                            type="number"
+                            formControlName="playCount"
+                           [ngClass]="{ 'is-invalid': submitted && f['playCount'].errors }" />
+                            <div *ngIf="submitted && f['playCount'].errors" class="invalid-feedback">
+                                <div *ngIf="f['playCount'].errors['required']"><span class="danger">*</span>Play Count is required</div>
+                            </div>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="col-12 d-flex align-items-center justify-content-center">
+              <div class="row">
+                <div class="col-12">
+                    <div class="dialog_form_btn">
+                    <button
+                        class="btn btn-primary"
+                        type="button"
+                        (click)="onUpdate()"
+                    >
+                        Update
+                    </button>
+                    &nbsp;
+                    <button
+                        class="btn btn-primary"
+                        type="button"
+                        (click)="onCancel()"
+                    >
+                        Cancel
+                    </button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<div class="toolbar" role="banner">
+  <img
+    width="40"
+    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+  />
+  <span>Welcome</span>
+  <div class="spacer"></div>
+</div>
+
+<div class="content" role="main">
+  <h2>Songs List</h2>
+  <div class="card-container">
+    <button class="card" (click)="addSong()">
+      <span class="d-flex">
+        <mat-icon mat-list-icon class="icon-style" matTooltip="play_arrow">
+          add</mat-icon
+        >Song</span
+      >
+    </button>
+    <div class="data-table-div">
+      <table
+        *ngIf="songsData"
+        datatable="ng"
+        [dtOptions]="dtOptions" 
+        class="table table-hover table-striped nowrap"
+      >
+        <thead>
+          <tr class="border-right bg-dark text-white">
+            <th>Id</th>
+            <th></th>
+            <th>Album</th>
+            <th>Song</th>
+            <th>Artist</th>
+            <th>ReleaseYear</th>
+            <th>First</th>
+            <th>Year</th>
+            <th>PlayCount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of songsData; let i = index">
+            <td class="border-right">{{ i+1 }}</td>
+            <td class="border-right">
+              <mat-icon
+                mat-list-icon
+                class="icon-style"
+                matTooltip="play_arrow"
+              >
+                play_arrow</mat-icon
+              >
+              <mat-icon
+                mat-list-icon
+                class="icon-style"
+                matTooltip="playlist_play"
+              >
+                playlist_play</mat-icon
+              >
+              <mat-icon
+                mat-list-icon
+                class="icon-style"
+                matTooltip="add"
+              >
+                add</mat-icon
+              >
+            </td>
+            <td class="border-right">
+              <img *ngIf="item.image" [src]="('http://localhost:3000/'+ item.image)">
+            </td>
+             <td class="border-right">{{ item.song }}</td>
+            <td class="border-right">{{ item.artist }}</td>
+            <td class="border-right">{{ item.releaseYear }}</td>
+            <td class="border-right">{{ item.first }}</td>
+            <td class="border-right">{{ item.year }}</td>
+            <td class="border-right">{{ item.playCount }}</td>
+            <td class="border-right">
+              <button class="btn" (click)="onUpdate(item,i)">
+              <mat-icon
+                mat-list-icon
+                class="icon-style"
+                matTooltip="edit"
+              >
+                edit</mat-icon
+              >
+              </button>
+              <button class="btn" (click)="onDelete(item,i)">
+              <mat-icon
+                mat-list-icon
+                class="icon-style"
+                matTooltip="delete"
+              >
+                delete</mat-icon
+              >
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer></footer>
+</div>
+<router-outlet></router-outlet>
